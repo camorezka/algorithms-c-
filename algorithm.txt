@@ -1,0 +1,381 @@
+// ---------- Алгоритми ----------
+
+const int size = 10;
+
+int a[size] = { 1,2,3,4,5,6,7,8,9,10 };
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+
+
+
+
+
+// ---------- Видалення елементу з масиву ---------
+
+
+const int size = 10;
+    int a[size];
+    int x;
+    int k = size;
+
+    srand(time(0));
+
+    for (int i = 0; i < k; i++)
+    {
+        a[i] = rand() % 20;
+    }
+
+    cout << "Масив: ";
+    for (int i = 0; i < k; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Введіть число для видалення: ";
+    cin >> x;
+
+    for (int i = 0; i < k; i++)
+    {
+        if (a[i] == x)
+        {
+            for (int j = i; j < k - 1; j++)
+            {
+                a[j] = a[j + 1];
+            }
+            k--;
+            i--;
+        }
+    }
+
+    cout << "Після видалення: ";
+    for (int i = 0; i < k; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+
+
+
+
+
+
+
+
+
+// ---------- Пошук максимального числа ---------
+
+// -- 1 ВАРІАНТ --
+
+const int size = 10;
+
+int a[size];
+int min = -1, max = 10;
+
+srand(time(0));
+
+for (size_t i = 0; i < size; i++)
+{
+	a[i] = rand() % (max - min + 1) + min;
+}
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+int maxValue = a[0];
+
+for (size_t i = 1; i < size; i++)
+{
+	if (a[i] > maxValue)
+	{
+		maxValue = a[i];
+	}
+}
+
+cout << maxValue << endl;
+
+
+
+// -- 2 ВАРІАНТ --
+
+int maxValue = a[0];
+
+for (int i = 1; i < size; i++)
+{
+    if (a[i] > maxValue)
+    {
+        maxValue = a[i];
+    }
+}
+
+
+
+
+
+
+
+
+// ---------- Пошук мінімального числа ---------
+
+// -- 1 ВАРІАНТ --
+
+const int size = 10;
+
+int a[size];
+int min = -1, max = 10;
+
+srand(time(0));
+
+for (size_t i = 0; i < size; i++)
+{
+	a[i] = rand() % (max - min + 1) + min;
+}
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+int minValue = a[0];
+
+for (size_t i = 1; i < size; i++)
+{
+	if (a[i] < minValue)
+	{
+		minValue = a[i];
+	}
+}
+
+cout << minValue << endl;
+
+
+
+// -- 2 ВАРІАНТ --
+
+int minValue = a[0];
+
+for (int i = 1; i < size; i++)
+{
+    if (a[i] < minValue)
+    {
+        minValue = a[i];
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------- Пошук парних чисел ----------
+
+const int size = 10;
+
+int a[size];
+int b[size];
+int k = 0;
+
+srand(time(0));
+
+for (size_t i = 0; i < size; i++)
+{
+	a[i] = rand() % 20;
+}
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+for (size_t i = 0; i < size; i++)
+{
+	if (a[i] % 2 == 0)
+	{
+		b[k] = a[i];
+		k++;
+	}
+}
+
+for (size_t i = 0; i < k; i++)
+{
+	cout << b[i] << " ";
+}
+cout << endl;
+
+
+
+
+
+
+// ---------- Обмін двох елементів масиву ----------
+
+const int size = 5;
+
+int a[size] = { 1,2,3,4,5 };
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+swap(a[1], a[3]);
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+
+
+
+
+
+// ---------- Алгоритм реверсу масиву ----------
+
+const int size = 5;
+
+int a[size] = { 1,2,3,4,5 };
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+for (size_t i = 0; i < size / 2; i++)
+{
+	swap(a[i], a[size - 1 - i]);
+}
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+
+
+
+
+
+// ---------- Алгоритм сортування масиву (методом бульбашки) ----------
+
+const int size = 10;
+
+int a[size] = { 8,5,3,9,1,7,4,2,10,6 };
+
+for (int i = 0; i < size - 1; i++)
+{
+	for (int j = 0; j < size - 1 - i; j++)
+	{
+		if (a[j] > a[j + 1])
+		{
+			swap(a[j], a[j + 1]);
+		}
+	}
+}
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+
+
+
+
+
+// ---------- Удосконалене сортування (методом бульбашки) ----------
+
+const int size = 10;
+
+int a[size] = { 8,5,3,9,1,7,4,2,10,6 };
+
+for (int i = 0; i < size - 1; i++)
+{
+	int count = 0;
+
+	for (int j = 0; j < size - 1 - i; j++)
+	{
+		if (a[j] > a[j + 1])
+		{
+			swap(a[j], a[j + 1]);
+			count++;
+		}
+	}
+
+	if (count == 0)
+	{
+		break;
+	}
+}
+
+for (size_t i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
+cout << endl;
+
+
+
+
+
+
+// ---------- Сортування (методом млинців) ----------
+
+const int size = 6;
+
+int a[size] = { 3,6,1,5,2,4 };
+
+for (int end = size - 1; end > 0; end--)
+{
+	int maxIndex = 0;
+
+	for (int i = 1; i <= end; i++)
+	{
+		if (a[i] > a[maxIndex])
+		{
+			maxIndex = i;
+		}
+	}
+
+	if (maxIndex != end)
+	{
+		for (int i = 0; i < (maxIndex + 1) / 2; i++)
+		{
+			swap(a[i], a[maxIndex - i]);
+		}
+
+		for (int i = 0; i < (end + 1) / 2; i++)
+		{
+			swap(a[i], a[end - i]);
+		}
+	}
+}
+
+for (int i = 0; i < size; i++)
+{
+	cout << a[i] << " ";
+}
